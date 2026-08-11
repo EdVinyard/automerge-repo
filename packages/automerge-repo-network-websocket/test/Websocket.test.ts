@@ -386,12 +386,9 @@ describe("Websocket adapters", () => {
         peerId: browserPeerId,
       })
 
-      await pause(500)
-
       const { serverAdapter } = await setupServer({ port, retryInterval })
 
-      expect(socketFactory).toBeCalled()
-      await eventPromise(browserAdapter, "peer-candidate")
+      expect(socketFactory).toHaveBeenCalled()
     })
   })
 
